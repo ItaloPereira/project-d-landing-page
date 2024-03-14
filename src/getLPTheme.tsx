@@ -1,9 +1,15 @@
-import type {} from '@mui/material/themeCssVarsAugmentation';
-import { ThemeOptions, alpha } from '@mui/material/styles';
+'use client';
+
+import { Roboto } from 'next/font/google';
+import { Inter } from 'next/font/google';
+
+import type { ThemeOptions } from '@mui/material/styles';
+import { alpha, createTheme } from '@mui/material/styles';
+
+import type { PaletteMode } from '@mui/material';
 import { red } from '@mui/material/colors';
-import { PaletteMode } from '@mui/material';
-import { Roboto } from "next/font/google";
-import { Inter } from "next/font/google";
+
+
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -657,3 +663,6 @@ export function getDefaultTheme(mode: PaletteMode): ThemeOptions {
     }
   }
 }
+
+export const defaultTheme = createTheme(getLPTheme('dark'));
+export const materialTheme = createTheme(getDefaultTheme('dark'));

@@ -126,17 +126,17 @@ export default function Pricing() {
                       icon={<AutoAwesomeIcon />}
                       label={tier.subheader}
                       size="small"
-                      sx={{
-                        background: (theme) =>
-                          theme.palette.mode === 'light' ? '' : 'none',
-                        backgroundColor: 'primary.contrastText',
-                        '& .MuiChip-label': {
-                          color: 'primary.dark',
-                        },
-                        '& .MuiChip-icon': {
-                          color: 'primary.dark',
-                        },
-                      }}
+                      // sx={{
+                      //   background: (theme) =>
+                      //     theme.palette.mode === 'light' ? '' : 'none',
+                      //   backgroundColor: 'primary.contrastText',
+                      //   '& .MuiChip-label': {
+                      //     color: 'primary.dark',
+                      //   },
+                      //   '& .MuiChip-icon': {
+                      //     color: 'primary.dark',
+                      //   },
+                      // }}
                     />
                   )}
                 </Box>

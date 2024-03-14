@@ -1,5 +1,3 @@
-'use client';
- 
 import { useState } from 'react';
 import type { PaletteMode } from '@mui/material';
 
@@ -20,9 +18,22 @@ import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Testimonials from '@/components/Testimonials';
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
-import { getLPTheme, getDefaultTheme } from '@/getLPTheme';
+import { defaultTheme, materialTheme } from '@/getLPTheme';
+
+async function getData(subdomain: string) {
+  const res = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:Z2te-ID5/LP?subdomain=${subdomain}`)
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
 
 interface ToggleCustomThemeProps {
   showCustomTheme: Boolean;
@@ -33,6 +44,7 @@ function ToggleCustomTheme({
   showCustomTheme,
   toggleCustomTheme,
 }: ToggleCustomThemeProps) {
+
   return (
     <Box
       sx={{
@@ -67,28 +79,34 @@ function ToggleCustomTheme({
   );
 }
 
-export default function LandingPage() {
-  const [mode, setMode] = useState<PaletteMode>('dark');
-  const [showCustomTheme, setShowCustomTheme] = useState(true);
+const LandingPage = async ({ params }: { params: { subdomain: string } }) => {
+  const data = await getData(params.subdomain);
+  console.log('data => ', data);
+  
+  const { theme } = data;
+  
 
-  const LPtheme = createTheme(getLPTheme(mode));
-  const defaultTheme = createTheme(getDefaultTheme(mode));
+  // const [mode, setMode] = useState<PaletteMode>('dark');
+  // const [showCustomTheme, setShowCustomTheme] = useState(true);
+  const mode = 'dark';
 
-  const toggleColorMode = () => {
-    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+  // const LPtheme = createTheme(getLPTheme(mode));
+  // const defaultTheme = createTheme(getDefaultTheme(mode));
 
-  const toggleCustomTheme = () => {
-    setShowCustomTheme((prev) => !prev);
-  };
+  // const toggleColorMode = () => {
+  //   setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  // };
+
+  // const toggleCustomTheme = () => {
+  //   setShowCustomTheme((prev) => !prev);
+  // };
 
   return (
-    <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
-
-      <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
+    <ThemeProvider theme={theme === 'default' ? defaultTheme : materialTheme}>
+      {/* <AppAppBar mode={mode} toggleColorMode={() => {}} /> */}
       <CssBaseline />
-      <Hero />
-      <Box sx={{ bgcolor: 'background.default' }}>
+      {/* <Hero /> */}
+      {/* <Box sx={{ bgcolor: 'background.default' }}>
         <LogoCollection />
         <Features />
         <Divider />
@@ -101,13 +119,17 @@ export default function LandingPage() {
         <FAQ />
         <Divider />
         <Footer />
-      </Box>
+      </Box> */}
+      
 
-      <ToggleCustomTheme
+      {/* <ToggleCustomTheme
         showCustomTheme={showCustomTheme}
         toggleCustomTheme={toggleCustomTheme}
-      />
-    </ThemeProvider>
+      /> */}
+        <Pricing />
 
+    </ThemeProvider>
   );
 }
+
+export default LandingPage;
