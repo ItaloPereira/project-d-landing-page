@@ -10,7 +10,6 @@ import type { PaletteMode } from '@mui/material';
 import { red } from '@mui/material/colors';
 
 
-
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
@@ -219,7 +218,7 @@ const getDesignTokens = (mode: PaletteMode) => ({
   },
 });
 
-export function getLPTheme(mode: PaletteMode): ThemeOptions {
+export function getDefaultTheme(mode: PaletteMode): ThemeOptions {
   return {
     ...getDesignTokens(mode),
     components: {
@@ -653,7 +652,7 @@ export function getLPTheme(mode: PaletteMode): ThemeOptions {
   };
 }
 
-export function getDefaultTheme(mode: PaletteMode): ThemeOptions {
+export function getMaTerialTheme(mode: PaletteMode): ThemeOptions {
   return {
     palette: { 
       mode
@@ -664,5 +663,20 @@ export function getDefaultTheme(mode: PaletteMode): ThemeOptions {
   }
 }
 
-export const defaultTheme = createTheme(getLPTheme('dark'));
-export const materialTheme = createTheme(getDefaultTheme('dark'));
+export function getInkiTheme(): ThemeOptions {
+  return {
+    palette: {
+      mode: 'light',
+      primary: {
+        main: '#ffa600',
+      },
+    },
+    typography: {
+      fontFamily: roboto.style.fontFamily,
+    }
+  }
+}
+
+export const defaultTheme = createTheme(getDefaultTheme('light'));
+export const materialTheme = createTheme(getMaTerialTheme('light'));
+export const inkiTheme = createTheme(getInkiTheme());
