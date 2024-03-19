@@ -26,7 +26,7 @@ const HomePage = async () => {
   }
 
   return (
-    <ThemeProvider theme={themeTree[theme]}>
+    <ThemeProvider theme={themeTree[theme as keyof typeof themeTree]}>
       <CssBaseline />
       <Hero text="hero" />
       <Pricing />
