@@ -13,6 +13,13 @@ const users = [
     email: 'talys@gmail.com',
     password: '1234',
   },
+  {
+    id: '420544b2-4001-4271-9855-fec4b6a6442d',
+    username: 'raniel',
+    name: 'Raniel',
+    email: 'raniel@gmail.com',
+    password: '1234',
+  },
 ];
 
 const pages = [
@@ -23,6 +30,10 @@ const pages = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442e',
     user_id: '410544b2-4001-4271-9855-fec4b6a6442d',
+  },
+  {
+    id: '420544b2-4001-4271-9855-fec4b6a6442e',
+    user_id: '420544b2-4001-4271-9855-fec4b6a6442d',
   },
 ];
 
@@ -46,6 +57,16 @@ const pageSettings = [
     logo_url: '/content-managed/talys-logo.png',
     featured_img_url: '/content-managed/talys-featured-image.png',
     featured_text: 'O Dj da Putaria...',
+  },
+  {
+    id: '420544b2-4001-4271-9855-fec4b6a6442f',
+    page_id: '420544b2-4001-4271-9855-fec4b6a6442e',
+    theme: 'mustaj',
+    primary_color: '#FF9D43',
+    title: 'Dj Raniel',
+    logo_url: '/content-managed/raniel-logo.png',
+    featured_img_url: '/content-managed/raniel-featured-image.png',
+    featured_text: 'Solta o Mandelão',
   },
 ]
 
