@@ -18,17 +18,36 @@ const users = [
 const pages = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442b',
-    user_id: '410544b2-4001-4271-9855-fec4b6a6442a',
-    theme: 'mustaj',
-    primary_color: '#d32f2f',
+    user_id: '410544b2-4001-4271-9855-fec4b6a6442a'
   },
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442e',
     user_id: '410544b2-4001-4271-9855-fec4b6a6442d',
-    theme: 'inki',
-    primary_color: '#8e24aa',
   },
 ];
+
+const pageSettings = [
+  {
+    id: '410544b2-4001-4271-9855-fec4b6a6442e',
+    page_id: '410544b2-4001-4271-9855-fec4b6a6442b',
+    theme: 'mustaj',
+    primary_color: '#d32f2f',
+    title: 'Dj Mustaj',
+    logo_url: '/content-managed/mustaj-logo.png',
+    featured_img_url: '/content-managed/mustaj-featured-image.png',
+    featured_text: 'Só o Mustaj tem o Código...',
+  },
+  {
+    id: '410544b2-4001-4271-9855-fec4b6a6442f',
+    page_id: '410544b2-4001-4271-9855-fec4b6a6442e',
+    theme: 'mustaj',
+    primary_color: '#8e24aa',
+    title: 'Dj Talys',
+    logo_url: '/content-managed/talys-logo.png',
+    featured_img_url: '/content-managed/talys-featured-image.png',
+    featured_text: 'O Dj da Putaria...',
+  },
+]
 
 const pageSections = [
   {
@@ -50,4 +69,4 @@ const pageContents = [
   },
 ];
 
-module.exports = { users, pages, pageContents, pageSections };
+module.exports = { users, pages, pageSettings, pageContents, pageSections };

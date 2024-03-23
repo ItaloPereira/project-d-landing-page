@@ -11,6 +11,13 @@ import type { Theme } from '@mui/material/styles';
 
 type ImageStyles = NonNullable<JSX.IntrinsicElements['img']['style']>;
 
+interface HeroProps {
+  title: string;
+  logoUrl: string;
+  featuredImgUrl: string;
+  featuredText: string;
+}
+
 const Hero__Background = {
   backgroundColor: 'primary.darker',
   position: 'absolute',
@@ -29,7 +36,8 @@ const Hero__Image__Box = {
 }
 
 const Hero__Image: ImageStyles = {
-  objectFit: 'contain'
+  objectFit: 'contain',
+  objectPosition: 'bottom center',
 }
 
 const Hero__Logo__Box = {
@@ -41,7 +49,8 @@ const Hero__Logo__Box = {
 }
 
 const Hero__Logo: ImageStyles = {
-  objectFit: 'contain'
+  objectFit: 'contain',
+  objectPosition: 'center',
 }
 
 const Hero__Image__Background = (theme: Theme) => ({
@@ -67,7 +76,9 @@ const Hero__Text = {
   fontStyle: 'italic',
 };
 
-const Hero = () => {
+const Hero = (props: HeroProps) => {
+  const { logoUrl, featuredImgUrl, featuredText, title } = props;
+
   return (
     <Box id="hero" component="section" position="relative" pt={6}>
       <Box sx={Hero__Background} />
@@ -76,8 +87,8 @@ const Hero = () => {
           <Box sx={Hero__Image__Box}>
             
             <Image
-              src="/content-managed/dj.png"
-              alt="Dj mustaj"
+              src={featuredImgUrl}
+              alt={`Foto do Presskit do ${title}`}
               fill
               style={Hero__Image}
             />
@@ -89,15 +100,15 @@ const Hero = () => {
 
             <Box sx={Hero__Logo__Box}>
               <Image
-                src="/content-managed/white-logo.png"
-                alt="Mustaj"
+                src={logoUrl}
+                alt={`Logo do ${title}`}
                 fill
                 style={Hero__Logo}
               />
             </Box>
 
             <Typography sx={Hero__Text} variant='h5'>
-              Só o Mustaj tem o Código...
+              {featuredText}
             </Typography>
 
           </Box>

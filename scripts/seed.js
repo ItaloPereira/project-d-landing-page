@@ -5,6 +5,7 @@ const {
   users,
   pages,
   pageContents,
+  pageSettings,
   pageSections,
 } = require('./initial-data');
 
@@ -39,8 +40,6 @@ async function seedPages(client) {
     CREATE TABLE IF NOT EXISTS pages (
       id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
       user_id UUID NOT NULL,
-      theme VARCHAR(255),
-      primary_color VARCHAR(255),
       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
       updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES users (id)
@@ -50,8 +49,8 @@ async function seedPages(client) {
 
   for (const page of pages) {
     await client.sql`
-      INSERT INTO pages (id, user_id, theme, primary_color)
-      VALUES (${page.id}, ${page.user_id}, ${page.theme}, ${page.primary_color})
+      INSERT INTO pages (id, user_id)
+      VALUES (${page.id}, ${page.user_id})
       ON CONFLICT (id) DO NOTHING;
     `;
   }
@@ -80,6 +79,34 @@ async function seedPageSections(client) {
     `;
   }
   console.log(`Seeded page sections`);
+}
+
+async function seedPageSettings(client) {
+  await client.sql`
+    CREATE TABLE IF NOT EXISTS page_settings (
+      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+      page_id UUID NOT NULL,
+      theme VARCHAR(255),
+      primary_color VARCHAR(255),
+      title VARCHAR(255),
+      logo_url VARCHAR(255),
+      featured_img_url VARCHAR(2048),
+      featured_text VARCHAR(2048),
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (page_id) REFERENCES pages (id)
+    );
+  `;
+  console.log(`Created "page_settings" table`);
+
+  for (const setting of pageSettings) {
+    await client.sql`
+      INSERT INTO page_settings (id, page_id, theme, primary_color, title, logo_url, featured_img_url, featured_text)
+      VALUES (${setting.id}, ${setting.page_id}, ${setting.theme}, ${setting.primary_color}, ${setting.title}, ${setting.logo_url}, ${setting.featured_img_url}, ${setting.featured_text})
+      ON CONFLICT (id) DO NOTHING;
+    `;
+  }
+  console.log(`Seeded page settings`);
 }
 
 async function seedPageContents(client) {
@@ -114,6 +141,7 @@ async function main() {
 
   await seedUsers(client);
   await seedPages(client);
+  await seedPageSettings(client);
   await seedPageSections(client);
   await seedPageContents(client);
 
