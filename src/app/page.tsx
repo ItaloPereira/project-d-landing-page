@@ -13,6 +13,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return {
     title: data.title,
     description: data.featured_text,
+    openGraph: {
+      images: [data.featured_img_url],
+    },
   }
 }
 
