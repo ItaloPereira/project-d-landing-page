@@ -1,14 +1,11 @@
 import type { Metadata } from 'next';
 
 import CssBaseline from '@mui/material/CssBaseline';
-import Pricing from '@/components/Pricing';
-import Hero from '@/components/Hero';
+import Hero from '@/components/sections/Hero';
 
-import { ThemeProvider } from '@mui/material/styles';
+import ThemeWrapper from '@/themes/';
 
-import { defaultTheme, materialTheme, inkiTheme } from '@/themes';
-
-import { getPageData } from '@/lib/data';
+import { getPageData } from '@/data/page';
 
 export const metadata: Metadata = {
   title: 'DJ LP',
@@ -17,20 +14,13 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   const data = await getPageData();
-  const { theme } = data;
-
-  const themeTree = {
-    default: defaultTheme,
-    material: materialTheme,
-    inki: inkiTheme,
-  }
+  const { theme, primary_color } = data;
 
   return (
-    <ThemeProvider theme={themeTree[theme as keyof typeof themeTree]}>
+    <ThemeWrapper theme={theme} primaryColor={primary_color}>
       <CssBaseline />
-      <Hero text="hero" />
-      <Pricing />
-    </ThemeProvider>
+      <Hero />
+    </ThemeWrapper>
   );
 }
 

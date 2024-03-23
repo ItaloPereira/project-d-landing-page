@@ -1,6 +1,11 @@
 import type { NextRequest } from 'next/server'
 import { sql } from '@vercel/postgres';
 
+export interface PageData {
+  theme: string;
+  primary_color: string;
+}
+
 export async function GET(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   const host = requestHeaders.get('host');
@@ -16,7 +21,7 @@ export async function GET(request: NextRequest) {
   //   SELECT * FROM users WHERE username = ${subdomain}
   // `;
 
-  const { rows: [pageData] } = await sql`
+  const { rows: [pageData] } = await sql<PageData>`
     SELECT p.*
     FROM pages p
     JOIN users u ON p.user_id = u.id

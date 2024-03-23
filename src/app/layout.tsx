@@ -10,7 +10,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="pt">
       <body>
-        <AppRouterCacheProvider options={{ key: 'css' }}>
+        <AppRouterCacheProvider>
           {children}
         </AppRouterCacheProvider>
       </body>

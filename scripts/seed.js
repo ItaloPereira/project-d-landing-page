@@ -40,6 +40,7 @@ async function seedPages(client) {
       id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
       user_id UUID NOT NULL,
       theme VARCHAR(255),
+      primary_color VARCHAR(255),
       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
       updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES users (id)
@@ -49,8 +50,8 @@ async function seedPages(client) {
 
   for (const page of pages) {
     await client.sql`
-      INSERT INTO pages (id, user_id, theme)
-      VALUES (${page.id}, ${page.user_id}, ${page.theme})
+      INSERT INTO pages (id, user_id, theme, primary_color)
+      VALUES (${page.id}, ${page.user_id}, ${page.theme}, ${page.primary_color})
       ON CONFLICT (id) DO NOTHING;
     `;
   }

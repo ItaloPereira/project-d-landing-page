@@ -1,20 +1,12 @@
 'use client';
 
-import { Roboto } from 'next/font/google';
 import { Inter } from 'next/font/google';
 
-import type { ThemeOptions } from '@mui/material/styles';
 import { alpha, createTheme } from '@mui/material/styles';
-
-import type { PaletteMode } from '@mui/material';
 import { red } from '@mui/material/colors';
+import type { PaletteMode } from '@mui/material';
+import type { ThemeOptions } from '@mui/material/styles';
 
-
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 const inter = Inter({
   weight: ['300', '400', '500', '700'],
@@ -22,25 +14,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-
-declare module '@mui/material/styles/createPalette' {
-  interface ColorRange {
-    50: string;
-    100: string;
-    200: string;
-    300: string;
-    400: string;
-    500: string;
-    600: string;
-    700: string;
-    800: string;
-    900: string;
-  }
-
-  interface PaletteColor extends ColorRange {}
-}
-
-export const brand = {
+const brand = {
   50: '#F0F7FF',
   100: '#CEE5FD',
   200: '#9CCCFC',
@@ -53,7 +27,7 @@ export const brand = {
   900: '#021F3B',
 };
 
-export const secondary = {
+const secondary = {
   50: '#F9F0FF',
   100: '#E9CEFD',
   200: '#D49CFC',
@@ -66,7 +40,7 @@ export const secondary = {
   900: '#23023B',
 };
 
-export const gray = {
+const gray = {
   50: '#FBFCFE',
   100: '#EAF0F5',
   200: '#D6E2EB',
@@ -79,7 +53,7 @@ export const gray = {
   900: '#090E10',
 };
 
-export const green = {
+const green = {
   50: '#F6FEF6',
   100: '#E3FBE3',
   200: '#C7F7C7',
@@ -218,7 +192,7 @@ const getDesignTokens = (mode: PaletteMode) => ({
   },
 });
 
-export function getDefaultTheme(mode: PaletteMode): ThemeOptions {
+const getDefaultTheme = (mode: PaletteMode): ThemeOptions => {
   return {
     ...getDesignTokens(mode),
     components: {
@@ -652,31 +626,6 @@ export function getDefaultTheme(mode: PaletteMode): ThemeOptions {
   };
 }
 
-export function getMaTerialTheme(mode: PaletteMode): ThemeOptions {
-  return {
-    palette: { 
-      mode
-    },
-    typography: {
-      fontFamily: roboto.style.fontFamily,
-    }
-  }
-}
+const defaultTheme = () => createTheme(getDefaultTheme('light'));
 
-export function getInkiTheme(): ThemeOptions {
-  return {
-    palette: {
-      mode: 'light',
-      primary: {
-        main: '#ffa600',
-      },
-    },
-    typography: {
-      fontFamily: roboto.style.fontFamily,
-    }
-  }
-}
-
-export const defaultTheme = createTheme(getDefaultTheme('light'));
-export const materialTheme = createTheme(getMaTerialTheme('light'));
-export const inkiTheme = createTheme(getInkiTheme());
+export default defaultTheme;

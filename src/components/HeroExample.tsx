@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-const Hero = ({ text }: { text: string }) => {
+const HeroExample = ({ text }: { text: string }) => {
   return (
     <Box
       id="hero"
@@ -104,5 +104,5 @@ const Hero = ({ text }: { text: string }) => {
   );
 }
 
-export default Hero;
+export default HeroExample;
 
