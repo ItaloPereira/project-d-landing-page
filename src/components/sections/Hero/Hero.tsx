@@ -6,10 +6,11 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
-import type { Theme } from '@mui/material/styles';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-type ImageStyles = NonNullable<JSX.IntrinsicElements['img']['style']>;
+import styles from './styles';
 
 interface HeroProps {
   title: string;
@@ -18,102 +19,54 @@ interface HeroProps {
   featuredText: string;
 }
 
-const Hero__Background = {
-  backgroundColor: 'primary.darker',
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  bottom: 0,
-  right: 0,
-};
-
-const Hero__Image__Box = {
-  position: 'relative',
-  margin: '0 auto',
-  maxWidth: 268,
-  width: '100%',
-  height: 472,
-}
-
-const Hero__Image: ImageStyles = {
-  objectFit: 'contain',
-  objectPosition: 'bottom center',
-}
-
-const Hero__Logo__Box = {
-  position: 'relative',
-  margin: '0 auto',
-  maxWidth: 198,
-  width: '100%',
-  height: 109,
-}
-
-const Hero__Logo: ImageStyles = {
-  objectFit: 'contain',
-  objectPosition: 'center',
-}
-
-const Hero__Image__Background = (theme: Theme) => ({
-  background: `linear-gradient(0deg, ${theme.palette.primary.darker} 25%, transparent 72%)`,
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  bottom: 0,
-  right: 0,
-});
-
-const Hero__LogoBox = {
-  position: 'relative',
-  top: '-186px',
-}
-
-const Hero__Text = {
-  maxWidth: 265,
-  margin: '0 auto',
-  mt: 2,
-  color: 'primary.contrastText',
-  textAlign: 'center',
-  fontStyle: 'italic',
-};
-
 const Hero = (props: HeroProps) => {
   const { logoUrl, featuredImgUrl, featuredText, title } = props;
 
   return (
-    <Box id="hero" component="section" position="relative" pt={6}>
-      <Box sx={Hero__Background} />
-      <Container>
-        <Stack position="relative">
-          <Box sx={Hero__Image__Box}>
+    <Box sx={styles.Hero} id="hero" component="section">
+      <Box sx={styles.Hero__Background} />
+      <Container maxWidth="md">
+        <Stack 
+          direction={{ md: 'row' }}
+          alignItems={{ md: 'center' }}
+          justifyContent={{ md: 'space-between' }}
+          sx={styles.Hero__Stack}>
+          <Box sx={styles.Hero__Image__Box}>
             
             <Image
               src={featuredImgUrl}
               alt={`Foto do Presskit do ${title}`}
               fill
-              style={Hero__Image}
+              style={styles.Hero__Image}
             />
-            <Box sx={Hero__Image__Background} />
+            <Box sx={styles.Hero__Image__Background} />
 
           </Box>
 
-          <Box sx={Hero__LogoBox}>
+          <Box sx={styles.Hero__LogoBox}>
 
-            <Box sx={Hero__Logo__Box}>
+            <Box sx={styles.Hero__Logo__Box}>
               <Image
                 src={logoUrl}
                 alt={`Logo do ${title}`}
                 fill
-                style={Hero__Logo}
+                style={styles.Hero__Logo}
               />
             </Box>
 
-            <Typography sx={Hero__Text} variant='h5'>
+            <Typography sx={styles.Hero__Text} variant='h5'>
               {featuredText}
             </Typography>
 
           </Box>
         </Stack>
       </Container>
+
+      <Stack sx={styles.Hero__ButtonBox} alignItems="center">
+        <Button endIcon={<ExpandMoreIcon sx={styles.ChevronDownIcon} />} color="inherit">
+          Descubra
+        </Button>
+      </Stack>
     </Box>
   )
 }

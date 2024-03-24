@@ -20,6 +20,13 @@ const users = [
     email: 'raniel@gmail.com',
     password: '1234',
   },
+  {
+    id: '430544b2-4001-4271-9855-fec4b6a6442d',
+    username: 'gi7',
+    name: 'Gi 7',
+    email: 'gi7@gmail.com',
+    password: '1234',
+  },
 ];
 
 const pages = [
@@ -34,6 +41,10 @@ const pages = [
   {
     id: '420544b2-4001-4271-9855-fec4b6a6442e',
     user_id: '420544b2-4001-4271-9855-fec4b6a6442d',
+  },
+  {
+    id: '430544b2-4001-4271-9855-fec4b6a6442e',
+    user_id: '430544b2-4001-4271-9855-fec4b6a6442d',
   },
 ];
 
@@ -67,6 +78,16 @@ const pageSettings = [
     logo_url: '/content-managed/raniel-logo.png',
     featured_img_url: '/content-managed/raniel-featured-image.png',
     featured_text: 'Solta o Mandelão',
+  },
+  {
+    id: '430544b2-4001-4271-9855-fec4b6a6442f',
+    page_id: '430544b2-4001-4271-9855-fec4b6a6442e',
+    theme: 'mustaj',
+    primary_color: '#16C7FF',
+    title: 'Dj Gi7',
+    logo_url: '/content-managed/gi7-logo.png',
+    featured_img_url: '/content-managed/gi7-featured-image.png',
+    featured_text: 'O Dj do Funk',
   },
 ]
 
