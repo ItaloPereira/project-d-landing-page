@@ -68,16 +68,15 @@ export default async function Image() {
       //   </div>
         
       // </div>
-      // <div 
-      //   className='container'
-      //   style={{
-      //     background: 'white',
-      //     width: '100%',
-      //     height: '100%',
-      //   }}
-      // >
+      <div 
+        style={{
+          background: 'white',
+          width: '100%',
+          height: '100%',
+        }}
+      >
         <p>{data.featured_text}</p>
-      // </div>
+      </div>
     ),
     {
       ...size,
