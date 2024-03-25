@@ -32,7 +32,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage: `url(${protocol}://${host}${data.featured_img_url})`,
+          backgroundImage: `url(${data.featured_img_url})`,
           backgroundColor: "black",
         }}
       >
@@ -41,7 +41,7 @@ export default async function Image() {
             marginTop: 300,
             width: 464,
             height: 600,
-            backgroundImage: `url(${protocol}://${host}${data.logo_url})`,
+            backgroundImage: `url(${data.logo_url})`,
             backgroundRepeat: "no-repeat",
           }}
         >
