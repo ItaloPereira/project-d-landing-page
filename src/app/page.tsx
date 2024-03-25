@@ -11,7 +11,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const data = await getPageData();
 
   return {
-    metadataBase: new URL('https://acme.com'),
+    metadataBase: new URL('https://mustaj.dermisbella.com.br/'),
     title: data.title,
     description: data.featured_text,
     openGraph: {
