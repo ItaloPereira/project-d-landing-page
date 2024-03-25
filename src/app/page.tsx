@@ -14,9 +14,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
     metadataBase: new URL('https://mustaj.dermisbella.com.br/'),
     title: data.title,
     description: data.featured_text,
-    openGraph: {
-      images: data.featured_img_url ,
-    },
+    // openGraph: {
+    //   images: data.featured_img_url ,
+    // },
   }
 }
 
