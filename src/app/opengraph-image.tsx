@@ -68,15 +68,9 @@ export default async function Image() {
       //   </div>
         
       // </div>
-      <div 
-        style={{
-          background: 'white',
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        <img src={data.featured_img_url} alt={data.title} width={324} height={572} />
-      </div>
+      <img src={data.featured_img_url} alt={data.title} width={324} height={572} style={{
+        objectFit: 'contain'
+      }} />
     ),
     {
       ...size,
