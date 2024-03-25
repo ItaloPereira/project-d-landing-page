@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import styles from './styles';
+import styles from './heroStyles';
 
 interface HeroProps {
   title: string;

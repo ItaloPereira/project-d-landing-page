@@ -6,7 +6,7 @@ const styles = {
   Hero: (theme: Theme) => ({
     position: 'relative',
     pt: 6,
-    minHeight: '100vh',
+    // minHeight: '100vh',
     color: 'primary.contrastText',
   
     [theme.breakpoints.up('md')]: {
