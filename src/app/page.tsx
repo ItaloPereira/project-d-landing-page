@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { headers } from 'next/headers';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Hero from '@/components/sections/Hero';
@@ -9,14 +10,13 @@ import { getPageData } from '@/data/page';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const data = await getPageData();
+  const host = headers().get('host');
+  const protocol = headers().get('x-forwarded-proto');
 
   return {
-    metadataBase: new URL('https://mustaj.dermisbella.com.br/'),
+    metadataBase: new URL(`${protocol}://${host}/`),
     title: data.title,
     description: data.featured_text,
-    // openGraph: {
-    //   images: data.featured_img_url ,
-    // },
   }
 }
 
