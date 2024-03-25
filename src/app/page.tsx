@@ -11,8 +11,12 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const data = await getPageData();
 
   return {
+    metadataBase: new URL('https://acme.com'),
     title: data.title,
-    description: data.featured_text
+    description: data.featured_text,
+    openGraph: {
+      images: data.featured_img_url ,
+    },
   }
 }
 

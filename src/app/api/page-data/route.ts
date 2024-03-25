@@ -1,10 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { sql } from '@vercel/postgres';
 
-// export interface PageData {
-//   theme: string;
-//   primary_color: string;
-// }
 
 export async function GET(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
