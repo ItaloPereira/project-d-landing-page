@@ -70,13 +70,9 @@ export default async function Image() {
       // </div>
       <div 
         style={{
-          fontSize: 128,
           background: 'white',
           width: '100%',
           height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
         }}
       >
         {data.featured_text}
