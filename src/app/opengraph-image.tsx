@@ -1,10 +1,14 @@
 import { ImageResponse } from 'next/og'
- 
+import CssBaseline from '@mui/material/CssBaseline';
+import Hero from '@/components/sections/Hero';
+
+import ThemeWrapper from '@/themes/';
+
 // Route segment config
 export const runtime = 'edge'
  
 // Image metadata
-export const alt = 'About Acme'
+export const alt = 'Apresentação do Artista'
 export const size = {
   width: 1200,
   height: 630,
@@ -16,29 +20,29 @@ import { getPageData } from '@/data/page';
  
 // Image generation
 export default async function Image() {
-  // Font
-  // const interSemiBold = fetch(
-  //   new URL('./Inter-SemiBold.ttf', import.meta.url)
-  // ).then((res) => res.arrayBuffer())
-
   const data = await getPageData();
+  
+  const {
+    theme,
+    primary_color,
+    title,
+    logo_url,
+    featured_img_url,
+    featured_text,
+  } = data;
  
   return new ImageResponse(
     (
       // ImageResponse JSX element
-      <div
-        style={{
-          fontSize: 128,
-          background: 'white',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {data.title}
-      </div>
+      <ThemeWrapper theme={theme} primaryColor={primary_color}>
+        <CssBaseline />
+        <Hero
+          title={title}
+          logoUrl={logo_url}
+          featuredImgUrl={featured_img_url}
+          featuredText={featured_text}
+        />
+      </ThemeWrapper>
     ),
     {
       ...size,
