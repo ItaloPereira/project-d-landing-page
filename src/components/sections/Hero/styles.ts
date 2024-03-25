@@ -10,7 +10,7 @@ const styles = {
     color: 'primary.contrastText',
   
     [theme.breakpoints.up('md')]: {
-      minHeight: 'auto',
+      minHeight: '620px',
       height: '80vh',
       maxHeight: '750px',
     },

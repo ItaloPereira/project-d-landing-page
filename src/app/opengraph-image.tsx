@@ -1,9 +1,6 @@
 import { ImageResponse } from 'next/og'
-import CssBaseline from '@mui/material/CssBaseline';
-import Hero from '@/components/sections/Hero';
-
-import ThemeWrapper from '@/themes/';
-
+import NextImage from 'next/image';
+ 
 // Route segment config
 export const runtime = 'edge'
  
@@ -21,28 +18,50 @@ import { getPageData } from '@/data/page';
 // Image generation
 export default async function Image() {
   const data = await getPageData();
-  
-  const {
-    theme,
-    primary_color,
-    title,
-    logo_url,
-    featured_img_url,
-    featured_text,
-  } = data;
  
   return new ImageResponse(
     (
       // ImageResponse JSX element
-      <ThemeWrapper theme={theme} primaryColor={primary_color}>
-        <CssBaseline />
-        <Hero
-          title={title}
-          logoUrl={logo_url}
-          featuredImgUrl={featured_img_url}
-          featuredText={featured_text}
-        />
-      </ThemeWrapper>
+      <div className='container'>
+
+        <div className='background'></div>
+
+        <div className='container'>
+          <div className='flex'>
+            <div className='image-box'>
+              <NextImage
+                src={data.featured_img_url}
+                alt={`Foto do Presskit do ${data.title}`}
+                fill
+                style={{
+                  objectFit: 'contain',
+                  objectPosition: 'bottom center',
+                }}
+              />
+              <div className='image-gradient'></div>
+            </div>
+
+            <div className='logo-textimage'>
+              <div className='logo-box'>
+                <NextImage
+                  src={data.logo_url}
+                  alt={`Logo do ${data.title}`}
+                  fill
+                  style={{
+                    objectFit: 'contain',
+                    objectPosition: 'center',
+                  }}
+                />
+              </div>
+
+              <div className='text'>
+                <p>{data.featured_text}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     ),
     {
       ...size,
