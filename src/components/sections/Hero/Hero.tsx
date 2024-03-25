@@ -24,7 +24,8 @@ const Hero = (props: HeroProps) => {
 
   return (
     <Box sx={styles.Hero} id="hero" component="section">
-      <Box sx={styles.Hero__Background} />
+      <Box sx={(theme) => styles.Hero__BackgroundImage(theme, logoUrl)} />
+      <Box sx={styles.Hero__BackgroundGradientOverlay} />
       <Container maxWidth="md">
         <Stack 
           direction={{ md: 'row' }}

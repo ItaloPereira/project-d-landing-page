@@ -40,6 +40,24 @@ const HomePage = async () => {
         featuredImgUrl={featured_img_url}
         featuredText={featured_text}
       />
+
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
+      <p>ewfwef</p>
     </ThemeWrapper>
   );
 }

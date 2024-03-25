@@ -1,13 +1,15 @@
 import type { Theme } from '@mui/material/styles';
 
 import { ImageStyles } from '@/types/image-styles';
+import { alpha } from '@mui/material/styles';
 
 const styles = {
   Hero: (theme: Theme) => ({
     position: 'relative',
     pt: 6,
-    // minHeight: '100vh',
     color: 'primary.contrastText',
+    overflow: 'hidden',
+    backgroundColor: 'primary.darker',
   
     [theme.breakpoints.up('md')]: {
       minHeight: '620px',
@@ -16,14 +18,42 @@ const styles = {
     },
   }),
   
-  Hero__Background: {
-    backgroundColor: 'primary.darker',
+  Hero__BackgroundImage: (theme: Theme, logoUrl: string) => ({
+    backgroundImage: `url(${logoUrl})`,
+    backgroundSize: '10%',
+    transform: 'rotate(30deg)',
+    width: '200%',
+    height: '200%',
+    position: 'absolute',
+    top: '-50%',
+    left: '-50%',
+    bottom: 0,
+    right: 0,
+    animation: 'moving 20s linear infinite',
+  
+    [theme.breakpoints.up('md')]: {
+      backgroundSize: '5%',
+      animation: 'moving 40s linear infinite',
+    },
+
+    "@keyframes moving": {
+      "0%": {
+        backgroundPosition: "0",
+      },
+      "100%": {
+        backgroundPosition: "100%",
+      }
+    },
+  }),
+
+  Hero__BackgroundGradientOverlay: (theme: Theme) => ({
+    background: `linear-gradient(0deg, ${theme.palette.primary.darker} 50%, ${alpha(theme.palette.primary.darker as string, 0.8)} 100%)`,
     position: 'absolute',
     top: 0,
     left: 0,
     bottom: 0,
     right: 0,
-  },
+  }),
   
   Hero__Stack: (theme: Theme) => ({
     position: 'relative',
