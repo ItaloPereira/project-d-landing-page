@@ -22,7 +22,13 @@ export default async function Image() {
   return new ImageResponse(
     (
       // ImageResponse JSX element
-      <div className='container'>
+      <div 
+        className='container'
+        style={{
+          background: 'white',
+          width: '100%',
+          height: '100%',
+        }}>
 
         <div className='background'></div>
 
