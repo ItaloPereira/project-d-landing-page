@@ -14,16 +14,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const protocol = headers().get('x-forwarded-proto');
 
   return {
-    // metadataBase: new URL(`${protocol}://${host}/`),
+    metadataBase: new URL(`${protocol}://${host}/`),
     title: data.title,
-    description: data.featured_text,
-    // openGraph: {
-    //   title: data.title,
-    //   description: data.featured_text,
-    //   type: 'website',
-    //   url: `${protocol}://${host}/`,
-    //   images: data.featured_img_url,
-    // }
+    description: data.featured_text
   }
 }
 
