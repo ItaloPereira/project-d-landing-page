@@ -75,10 +75,8 @@ export default async function Image() {
           height: '100%',
         }}
       >
-        <p>{data.featured_text}</p>
+        <div>{data.featured_text}</div>
       </div>
-
-
     ),
     {
       ...size,
