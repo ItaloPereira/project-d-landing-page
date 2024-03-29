@@ -45,10 +45,13 @@ export const getMustajTheme = (primaryColor: string): ThemeOptions => {
     },
     typography: {
       fontFamily: roboto.style.fontFamily,
+      h3: {
+        fontFamily: radley.style.fontFamily,
+        lineHeight: 1,
+      },
       h5: {
         fontFamily: radley.style.fontFamily,
       },
-      // secondaryFontFamily: radley.style.fontFamily,
     }
   }
 }

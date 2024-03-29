@@ -1,6 +1,5 @@
 import type { Theme } from '@mui/material/styles';
 
-import { ImageStyles } from '@/types/image-styles';
 import { alpha } from '@mui/material/styles';
 
 const styles = {
@@ -72,11 +71,6 @@ const styles = {
     },
   }),
   
-  Hero__Image: <ImageStyles> {
-    objectFit: 'contain',
-    objectPosition: 'bottom center',
-  },
-  
   Hero__Logo__Box: (theme: Theme) => ({
     position: 'relative',
     margin: '0 auto',
@@ -88,11 +82,6 @@ const styles = {
       height: 200
     },
   }),
-  
-  Hero__Logo: <ImageStyles> {
-    objectFit: 'contain',
-    objectPosition: 'center',
-  },
   
   Hero__Image__Background: (theme: Theme) => ({
     background: `linear-gradient(0deg, ${theme.palette.primary.darker} 25%, transparent 72%)`,

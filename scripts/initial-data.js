@@ -57,7 +57,7 @@ const pageSettings = [
     title: 'Dj Mustaj',
     logo_url: '/content-managed/mustaj-logo.png',
     featured_img_url: '/content-managed/mustaj-featured-image.png',
-    featured_text: 'Só o Mustaj tem o Código...',
+    featured_text: 'It\'s Mustaj!'
   },
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442f',

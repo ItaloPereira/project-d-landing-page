@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import { headers } from 'next/headers';
 
 import CssBaseline from '@mui/material/CssBaseline';
+
 import Hero from '@/components/sections/Hero';
+import TextImage from '@/components/sections/TextImage';
 
 import ThemeWrapper from '@/themes/';
 
@@ -34,6 +36,7 @@ const HomePage = async () => {
   return (
     <ThemeWrapper theme={theme} primaryColor={primary_color}>
       <CssBaseline />
+
       <Hero
         title={title}
         logoUrl={logo_url}
@@ -41,23 +44,8 @@ const HomePage = async () => {
         featuredText={featured_text}
       />
 
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
-      <p>ewfwef</p>
+      <TextImage />
+
     </ThemeWrapper>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/ui/Image';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -26,19 +26,21 @@ const Hero = (props: HeroProps) => {
     <Box sx={styles.Hero} id="hero" component="section">
       <Box sx={(theme) => styles.Hero__BackgroundImage(theme, logoUrl)} />
       <Box sx={styles.Hero__BackgroundGradientOverlay} />
+
       <Container maxWidth="md">
-        <Stack 
+        <Stack
           direction={{ md: 'row' }}
           alignItems={{ md: 'center' }}
           justifyContent={{ md: 'space-between' }}
-          sx={styles.Hero__Stack}>
+          sx={styles.Hero__Stack}
+        >
           <Box sx={styles.Hero__Image__Box}>
             
             <Image
               src={featuredImgUrl}
               alt={`Foto do Presskit do ${title}`}
               fill
-              style={styles.Hero__Image}
+              objectPosition='bottom center'
             />
             <Box sx={styles.Hero__Image__Background} />
 
@@ -51,11 +53,10 @@ const Hero = (props: HeroProps) => {
                 src={logoUrl}
                 alt={`Logo do ${title}`}
                 fill
-                style={styles.Hero__Logo}
               />
             </Box>
 
-            <Typography sx={styles.Hero__Text} variant='h5'>
+            <Typography sx={styles.Hero__Text} variant='h5' component='h2'>
               {featuredText}
             </Typography>
 
