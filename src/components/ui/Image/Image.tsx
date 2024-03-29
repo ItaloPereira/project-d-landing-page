@@ -8,12 +8,13 @@ interface ImageProps {
   src: string;
   alt: string;
   fill?: boolean;
+  sizes?: string;
   objectFit?: 'contain' | 'cover'
   objectPosition?: string;
 }
 
 const Image = (props: ImageProps) => {
-  const { src, alt, fill, objectFit = 'contain', objectPosition = 'center' } = props;
+  const { src, alt, fill, objectFit = 'contain', objectPosition = 'center', sizes } = props;
 
   return (
     <NextImage
@@ -21,6 +22,7 @@ const Image = (props: ImageProps) => {
       alt={alt}
       fill={fill}
       style={styles.Image(objectFit, objectPosition)}
+      sizes={sizes}
     />
   )
 }

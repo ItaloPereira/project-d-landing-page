@@ -46,10 +46,11 @@ const YoutubeVideo = (props: YoutubeVideoProps) => {
       {!isPlaying && (
         <>
           <Image
-            src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
             alt="Thumbnail do vídeo do YouTube"
             objectFit='cover'
             fill
+            sizes='(min-width: 768px) 50vw, 100vw'
           />
           <Box sx={styles.PlayIconBox}>
             <IconButton sx={styles.PlayIcon} aria-label="play" size="large" color='inherit'>

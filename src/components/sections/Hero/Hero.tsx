@@ -40,6 +40,7 @@ const Hero = (props: HeroProps) => {
               src={featuredImgUrl}
               alt={`Foto do Presskit do ${title}`}
               fill
+              sizes='(min-width: 768px) 50vw, 100vw'
               objectPosition='bottom center'
             />
             <Box sx={styles.Hero__Image__Background} />
@@ -53,6 +54,7 @@ const Hero = (props: HeroProps) => {
                 src={logoUrl}
                 alt={`Logo do ${title}`}
                 fill
+                sizes='(min-width: 768px) 50vw, 100vw'
               />
             </Box>
 
