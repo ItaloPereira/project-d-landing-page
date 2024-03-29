@@ -20,25 +20,30 @@ const YoutubeVideo = (props: YoutubeVideoProps) => {
   const { videoId } = props;
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [video, setVideo] = useState<any>(null);
 
   const opts: YouTubeProps['opts'] = {
     height: '100%',
     width: '100%',
     playerVars: {
-      autoplay: 1,
       controls: 0,
     },
   };
 
   const onPlayerReady = (event: any) => {
-    event.target.playVideo();
+    setVideo(event.target);
+  }
+
+  const playVideo = () => {
+    setIsPlaying(true);
+    video.playVideo();
   }
 
   return (
-    <Box sx={styles.YoutubeVideo} onClick={() => setIsPlaying(true)}>
-      {isPlaying ? (
-        <YouTube className="youtube-video" videoId={videoId} opts={opts} onReady={onPlayerReady} id="video"/>
-      ) : (
+    <Box sx={styles.YoutubeVideo} onClick={playVideo}>
+      <YouTube className="youtube-video" videoId={videoId} opts={opts} onReady={onPlayerReady} id="video"/>
+
+      {!isPlaying && (
         <>
           <Image
             src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
