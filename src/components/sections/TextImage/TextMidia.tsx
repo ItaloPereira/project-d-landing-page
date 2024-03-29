@@ -35,7 +35,7 @@ const TextMidia = (props: TextImageProps) => {
                   </p>
 
                   <p>
-                    Com diversos lançamentos e <strong>múltiplos dígitos</strong> de streams, Mustaj vem se destacando com seus lançamentos que vem se tornando referência nos <strong>palcos das redondezas</strong>.
+                    Com diversos lançamentos e <strong>múltiplos dígitos</strong> de streams, Mustaj vem se destacando com seus hits que vem se tornando referência nos <strong>palcos das redondezas</strong>.
                   </p>
                 </Typography>
 

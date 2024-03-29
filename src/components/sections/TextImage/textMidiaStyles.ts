@@ -16,9 +16,8 @@ const styles = {
     },
   }),
   Rtf: (theme: Theme) => ({
-    '& p': {
-      // marginBottom: '1rem',
-    },
+    margin: '0 !important',
+
     '& strong': {
       color: 'primary.main'
     },
