@@ -8,6 +8,10 @@ const styles = {
     borderRadius: 2,
     overflow: 'hidden',
     cursor: 'pointer',
+
+    '.youtube-video': {
+      height: '100%',
+    }
   }),
   PlayIconBox: (theme: Theme) => ({
     position: 'absolute',

@@ -3,6 +3,8 @@
 import Image from '@/components/ui/Image';
 import { useState } from 'react';
 
+import YouTube, { YouTubeProps }  from "react-youtube";
+
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 
@@ -19,10 +21,23 @@ const YoutubeVideo = (props: YoutubeVideoProps) => {
 
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const opts: YouTubeProps['opts'] = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+    },
+  };
+
+  const onPlayerReady = (event: any) => {
+    event.target.playVideo();
+  }
+
   return (
     <Box sx={styles.YoutubeVideo} onClick={() => setIsPlaying(true)}>
       {isPlaying ? (
-        <iframe style={styles.Iframe} width="100%" height="100%" src={`https://www.youtube.com/embed/${videoId}?autoplay=true`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <YouTube className="youtube-video" videoId={videoId} opts={opts} onReady={onPlayerReady} id="video"/>
       ) : (
         <>
           <Image
