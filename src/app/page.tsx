@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Hero from '@/components/sections/Hero';
 import TextMidia from '@/components/sections/TextMidia';
 import ExternalSong from '@/components/sections/ExternalSong';
+import Footer from '@/components/sections/Footer';
 
 import ThemeWrapper from '@/themes/';
 
@@ -46,8 +47,13 @@ const HomePage = async () => {
       />
 
       <TextMidia />
-      
+
       <ExternalSong spotifySongUrl='https://open.spotify.com/track/4EuqfssnCCNYb4UrR1Un8Z?si=9fa28f59073145ee' />
+
+      <Footer
+        title={title}
+        logoUrl={logo_url}
+      />
 
     </ThemeWrapper>
   );
