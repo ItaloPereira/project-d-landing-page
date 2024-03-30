@@ -26,7 +26,7 @@ const TextMidia = (props: TextImageProps) => {
             <Grid item xs={12} md={6}>
               <Stack spacing={2}>
                 <Typography variant='h3' component='h2'>
-                  Só o Mustaj que tem o código...
+                  Só o Mustaj tem o código...
                 </Typography>
 
                 <Typography sx={styles.Rtf} component="div" variant='body1'>

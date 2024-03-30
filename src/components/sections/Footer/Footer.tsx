@@ -29,18 +29,20 @@ const Footer = (props: FooterProps) => {
       <Container maxWidth="md">
         <Stack alignItems="center">
           <Stack direction="row" justifyContent="center" spacing={2}>
-            <Link target='_blank' href="https://open.spotify.com/artist/0Ga4butm53DwFt99iUoht5?si=NmjpeSsGR3iyahtX9j8h7w">
-              <IconButton tabIndex={-1} aria-label="delete" size="large" color='inherit'>
+            <Link target='_blank' href="https://open.spotify.com/artist/0Ga4butm53DwFt99iUoht5?si=NmjpeSsGR3iyahtX9j8h7w" passHref>
+              <IconButton aria-label="spotify" size="large" color='inherit'>
                 <ContactlessIcon fontSize="large" sx={{ transform: 'rotate(-90deg)' }} />
               </IconButton>
             </Link>
-            <Link target='_blank' href="https://open.spotify.com/artist/0Ga4butm53DwFt99iUoht5?si=NmjpeSsGR3iyahtX9j8h7w">
-              <IconButton tabIndex={-1} aria-label="delete" size="large" color='inherit'>
+            
+            <Link target='_blank' href="https://www.instagram.com/itsmustaj/" passHref>
+              <IconButton aria-label="instagram" size="large" color='inherit'>
                 <InstagramIcon fontSize="large" />
               </IconButton>
             </Link>
-            <Link target='_blank' href="https://open.spotify.com/artist/0Ga4butm53DwFt99iUoht5?si=NmjpeSsGR3iyahtX9j8h7w">
-              <IconButton tabIndex={-1} aria-label="delete" size="large" color='inherit'>
+
+            <Link target='_blank' href="https://www.youtube.com/@Itsmustaj" passHref>
+              <IconButton aria-label="delete" size="large" color='inherit'>
                 <YouTubeIcon fontSize="large" />
               </IconButton>
             </Link>

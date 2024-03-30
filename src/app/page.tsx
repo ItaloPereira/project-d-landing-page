@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Hero from '@/components/sections/Hero';
 import TextMidia from '@/components/sections/TextMidia';
 import ExternalSong from '@/components/sections/ExternalSong';
+import HireCta from '@/components/sections/HireCta';
 import Footer from '@/components/sections/Footer';
 
 import ThemeWrapper from '@/themes/';
@@ -48,7 +49,9 @@ const HomePage = async () => {
 
       <TextMidia />
 
-      <ExternalSong spotifySongUrl='https://open.spotify.com/track/4EuqfssnCCNYb4UrR1Un8Z?si=9fa28f59073145ee' />
+      <ExternalSong youtubeVideoId='l11-3lKuCPY' />
+
+      <HireCta />
 
       <Footer
         title={title}
