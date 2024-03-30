@@ -23,7 +23,7 @@ const ExternalSong = (props: ExternalSongProps) => {
   return (
     <Box sx={styles.ExternalSong} component="section">
       <Container maxWidth="md">
-          <Grid container spacing={{xs: 3, md: 6}}>
+          <Grid container spacing={{xs: 3, md: 6}} direction={{xs: 'column-reverse', md: 'row-reverse'}}>
             <Grid item xs={12} md={6}>
               {youtubeVideoId && (
                 <Box sx={styles.YoutubeBox}>

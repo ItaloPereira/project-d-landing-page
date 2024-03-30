@@ -46,6 +46,7 @@ const HomePage = async () => {
       />
 
       <TextMidia />
+      
       <ExternalSong spotifySongUrl='https://open.spotify.com/track/4EuqfssnCCNYb4UrR1Un8Z?si=9fa28f59073145ee' />
 
     </ThemeWrapper>
