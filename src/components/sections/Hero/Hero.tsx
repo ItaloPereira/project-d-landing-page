@@ -42,6 +42,7 @@ const Hero = (props: HeroProps) => {
               fill
               sizes='(min-width: 768px) 50vw, 100vw'
               objectPosition='bottom center'
+              priority
             />
             <Box sx={styles.Hero__Image__Background} />
 

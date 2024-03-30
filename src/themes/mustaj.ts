@@ -49,6 +49,9 @@ export const getMustajTheme = (primaryColor: string): ThemeOptions => {
         fontFamily: radley.style.fontFamily,
         lineHeight: 1,
       },
+      h4: {
+        fontSize: '1.75rem',
+      },
       h5: {
         fontFamily: radley.style.fontFamily,
       },

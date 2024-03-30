@@ -4,7 +4,8 @@ import { headers } from 'next/headers';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import Hero from '@/components/sections/Hero';
-import TextImage from '@/components/sections/TextImage';
+import TextMidia from '@/components/sections/TextMidia';
+import ExternalSong from '@/components/sections/ExternalSong';
 
 import ThemeWrapper from '@/themes/';
 
@@ -44,7 +45,8 @@ const HomePage = async () => {
         featuredText={featured_text}
       />
 
-      <TextImage />
+      <TextMidia />
+      <ExternalSong spotifySongUrl='https://open.spotify.com/track/4EuqfssnCCNYb4UrR1Un8Z?si=9fa28f59073145ee' />
 
     </ThemeWrapper>
   );
