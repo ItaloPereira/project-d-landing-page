@@ -45,6 +45,7 @@ const ImageSlider = (props: ImageSliderProps) => {
           }}
           speed={1000}
           modules={[Autoplay]}
+          centeredSlides={true}
         >
           {images.map((image) => (
             <SwiperSlide key={image}>
