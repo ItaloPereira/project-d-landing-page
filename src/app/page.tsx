@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Hero from '@/components/sections/Hero';
 import TextMidia from '@/components/sections/TextMidia';
 import ExternalSong from '@/components/sections/ExternalSong';
+import ImageSlider from '@/components/sections/ImageSlider';
 import HireCta from '@/components/sections/HireCta';
 import Footer from '@/components/sections/Footer';
 
@@ -36,6 +37,8 @@ const HomePage = async () => {
     featured_text,
   } = data;
 
+  const partyImages = ['/content-managed/parties/its-mustaj.png', '/content-managed/parties/its-mustaj-2.png', '/content-managed/parties/after-mc-daniel.png', '/content-managed/parties/a-volta-do-inferninho.png', '/content-managed/parties/resenha-proibidao.png', '/content-managed/parties/paulin-da-capital.png', '/content-managed/parties/despedida-stiffler.png', '/content-managed/parties/resenha.png', '/content-managed/parties/projeto-x.png'];
+
   return (
     <ThemeWrapper theme={theme} primaryColor={primary_color}>
       <CssBaseline />
@@ -51,12 +54,16 @@ const HomePage = async () => {
 
       <ExternalSong youtubeVideoId='l11-3lKuCPY' />
 
+      <ImageSlider images={partyImages} />
+
       <HireCta />
 
       <Footer
         title={title}
         logoUrl={logo_url}
       />
+
+      
 
     </ThemeWrapper>
   );
